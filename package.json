@@ -1,0 +1,19 @@
+{
+  "name": "iide",
+  "version": "1.0.0",
+  "description": "CRUD operation where you can create, read, update and delete a blog using NodeJS and MySQL.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rohithowlader/IIDE.git"
+  },
+  "author": "Rohit Howlader",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rohithowlader/IIDE/issues"
+  },
+  "homepage": "https://github.com/rohithowlader/IIDE#readme"
+}
