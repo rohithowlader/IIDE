@@ -2,7 +2,7 @@ import express from 'express';
 import ip from 'ip';
 import dotenv from 'dotenv';
 import pool from './db/dababase.mjs';
-import user from './query/user.mjs';
+import createUser from './Controller/user/createUser.mjs';
 
 dotenv.config();
 
@@ -18,7 +18,7 @@ app.get('/', (req,res)=>{
    res.send({message:"Running"});
 });
 
-app.use('/users', user);
+app.use('/createUser', createUser);
 
 
 pool.connect(function(err) {
