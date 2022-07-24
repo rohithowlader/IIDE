@@ -16,10 +16,36 @@ services:
       MYSQL_USER: admin
       MYSQL_PASSWORD: pass
       MYSQL_ROOT_PASSWORD: pass
-      SERVICE_TAGS: dev
+      SERVICE_TAGS: prod
       SERVICE_NAME: mysqldb
     networks:
       - intenalnet
+
+  nodeapp:
+    container_name: nodeappcontainer
+    build: .
+    image: nodeapp:v1
+    volumes:
+      - .:/IIDE/code
+    ports:
+      - 3000:3000
+    expose:
+      - 3000
+    environment:
+      DB_HOST: mysqldb
+      DB_PORT: 3306
+      DB_USER: 'admin'
+      DB_PASSWORD: 'pass'
+      DB_DATABASE: blogDB
+      DB_CONNECTION_LIMIT: 20
+      PORT: 3000
+      SERVICE_TAGS: prod
+      SERVICE_NAME: nodeappservice
+    depends_on:
+      - mysqldb
+    networks:
+      - intenalnet
+
 networks:
   intenalnet:
     driver: bridge
