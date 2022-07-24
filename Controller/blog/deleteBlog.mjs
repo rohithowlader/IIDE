@@ -3,7 +3,7 @@ import pool from '../../db/dababase.mjs';
 let deleteBlog = express.Router();
 
 deleteBlog.post('/', async (req, res) => {
-    //checking if user exists
+    //checking if blog exists in blogs Database
     let checkingSql = 'SELECT * FROM blogs WHERE Blog_id = ? ';
     await pool.query(checkingSql, [req.body.blogId], (err, result) => {
         if (result.length == 0) {

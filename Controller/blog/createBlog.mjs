@@ -3,7 +3,6 @@ import pool from '../../db/dababase.mjs';
 let createBlog = express.Router();
 
 createBlog.post('/', async (req, res) => {
-
     //checking if user exists
     let checkingSql = 'SELECT * FROM users WHERE Email = ? ';
     await pool.query(checkingSql, [req.body.email], (err, result) => {
