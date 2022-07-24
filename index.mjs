@@ -5,6 +5,7 @@ import pool from './db/dababase.mjs';
 import createUser from './Controller/user/createUser.mjs';
 import deleteUser from './Controller/user/deleteUser.mjs';
 import createBlog from './Controller/blog/createBlog.mjs';
+import deleteBlog from './Controller/blog/deleteBlog.mjs';
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.get('/', (req, res) => {
 app.use('/createUser', createUser);
 app.use('/deleteUser', deleteUser);
 app.use('/createBlog', createBlog);
+app.use('/deleteBlog', deleteBlog);
 
 pool.connect(function (err) {
    if (err) throw err;

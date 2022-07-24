@@ -17,9 +17,9 @@ createBlog.post('/', async (req, res) => {
             let userSql = 'SELECT Users_id FROM users WHERE Email = ? ';
             pool.query(userSql, [req.body.email], (err, result) => {
                 if (err) throw err;
-                let use=result[0].Users_id;
+                let use = result[0].Users_id;
                 let sql = "INSERT INTO blogs (Messages, Images,Title, Users_id) VALUES (? , ? , ? , ?)";
-                pool.query(sql,[req.body.Messages, req.body.Images,req.body.Title,use],  (err, result) => {
+                pool.query(sql, [req.body.Messages, req.body.Images, req.body.Title, use], (err, result) => {
                     if (err) throw err;
                     return res.status(200).json({
                         message: `Blog created`
