@@ -1,7 +1,5 @@
 import express from "express";
 import pool from '../../db/dababase.mjs';
-
-
 var createUser = express.Router();
 
 createUser.post('/', async (req, res) => {

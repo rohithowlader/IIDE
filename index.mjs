@@ -3,30 +3,32 @@ import ip from 'ip';
 import dotenv from 'dotenv';
 import pool from './db/dababase.mjs';
 import createUser from './Controller/user/createUser.mjs';
+import deleteUser from './Controller/user/deleteUser.mjs';
 
 dotenv.config();
 
 var app = express();
 
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 var port = process.env.PORT || 3000;
 
 
 //controllers
-app.get('/', (req,res)=>{
-   res.send({message:"Running"});
+app.get('/', (req, res) => {
+   res.send({ message: "Running" });
 });
 
 app.use('/createUser', createUser);
+app.use('/deleteUser', deleteUser);
 
 
-pool.connect(function(err) {
+pool.connect(function (err) {
    if (err) throw err;
    console.log("Connected!");
- });
+});
 
 
-app.listen(port, () =>{
+app.listen(port, () => {
    console.log(`Server running on ${ip.address()} on port ${port}`);
 });

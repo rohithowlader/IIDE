@@ -3,20 +3,23 @@ CREATE DATABASE IF NOT EXISTS blogDB;
 USE blogDB;
 
 DROP TABLE IF EXISTS users;
+
 DROP TABLE IF EXISTS blogs;
 
+CREATE TABLE
+    users (
+        Users_id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+        First_name VARCHAR(255) DEFAULT NULL,
+        Last_name VARCHAR(255) DEFAULT NULL,
+        Email VARCHAR(255) DEFAULT NULL,
+        CONSTRAINT User_email UNIQUE (Email)
+    );
 
-CREATE TABLE users (
-    Users_id    INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    First_name  VARCHAR(255) DEFAULT NULL,
-    Last_name   VARCHAR(255) DEFAULT NULL,
-    Email       VARCHAR(255) DEFAULT NULL,
-    CONSTRAINT User_email UNIQUE (Email)
-);
-CREATE TABLE blogs (
-    Blog_id     INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
-    messages    VARCHAR(10000) DEFAULT NULL,
-    images      VARCHAR(2083) DEFAULT NULL,
-    Users_id    INT(11) UNSIGNED NOT NULL,
-    FOREIGN KEY (Users_id) REFERENCES users(Users_id)
-);
+CREATE TABLE
+    blogs (
+        Blog_id INT(11) UNSIGNED AUTO_INCREMENT PRIMARY KEY NOT NULL,
+        messages VARCHAR(10000) DEFAULT NULL,
+        images VARCHAR(2083) DEFAULT NULL,
+        Users_id INT(11) UNSIGNED NOT NULL,
+        FOREIGN KEY (Users_id) REFERENCES users(Users_id)
+    );
