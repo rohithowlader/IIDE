@@ -6,7 +6,6 @@ DROP TABLE IF EXISTS users;
 
 DROP TABLE IF EXISTS blogs;
 
-
 -- create
 
 CREATE TABLE
@@ -26,6 +25,6 @@ CREATE TABLE
         Messages VARCHAR(10000) DEFAULT NULL,
         Images VARCHAR(2083) DEFAULT NULL,
         CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        Users_id BIGINT UNSIGNED NOT NULL ,
+        Users_id BIGINT UNSIGNED NOT NULL,
         FOREIGN KEY (Users_id) REFERENCES users(Users_id)
     );

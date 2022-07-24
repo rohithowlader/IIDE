@@ -6,7 +6,6 @@ createBlog.post('/', async (req, res) => {
     //checking if user exists
     let checkingSql = 'SELECT * FROM users WHERE Email = ? ';
     await pool.query(checkingSql, [req.body.email], (err, result) => {
-
         if (result.length == 0) {
             return res.status(404).json({
                 message: `User not present`
@@ -26,7 +25,6 @@ createBlog.post('/', async (req, res) => {
                         message: `Blog created`
                     });
                 });
-
             });
         }
     });
