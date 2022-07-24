@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import pool from './db/dababase.mjs';
 import createUser from './Controller/user/createUser.mjs';
 import deleteUser from './Controller/user/deleteUser.mjs';
+import createBlog from './Controller/blog/createBlog.mjs';
 
 dotenv.config();
 
@@ -18,10 +19,9 @@ var port = process.env.PORT || 3000;
 app.get('/', (req, res) => {
    res.send({ message: "Running" });
 });
-
 app.use('/createUser', createUser);
 app.use('/deleteUser', deleteUser);
-
+app.use('/createBlog', createBlog);
 
 pool.connect(function (err) {
    if (err) throw err;
