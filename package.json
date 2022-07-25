@@ -4,7 +4,7 @@
   "description": "CRUD operation where you can create, read, update and delete a blog using NodeJS and MySQL.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.mjs"
+    "start": "node index.mjs"
   },
   "repository": {
     "type": "git",
@@ -17,13 +17,10 @@
   },
   "homepage": "https://github.com/rohithowlader/IIDE#readme",
   "dependencies": {
-    "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "ip": "^1.1.8",
     "mysql": "^2.18.1",
-    "nodemon": "^2.0.19",
-    "pino": "^8.3.0",
-    "pino-pretty": "^8.1.0"
+    "nodemon": "^2.0.19"
   }
 }
